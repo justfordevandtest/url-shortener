@@ -1,0 +1,230 @@
+basePath: /api/v1
+definitions:
+  ErrorItemResponse:
+    properties:
+      code:
+        type: string
+      subCode:
+        type: string
+    type: object
+  ErrorResponse:
+    properties:
+      code:
+        type: integer
+      errors:
+        items:
+          $ref: '#/definitions/ErrorItemResponse'
+        type: array
+      status:
+        type: string
+    type: object
+  SuccessResponse:
+    properties:
+      code:
+        type: integer
+      data:
+        type: object
+      status:
+        type: string
+    type: object
+  admin.ListOutput:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/entity.URL'
+        type: array
+      total:
+        type: integer
+    type: object
+  entity.URL:
+    properties:
+      expired:
+        type: integer
+      hitCount:
+        type: integer
+      id:
+        type: string
+      url:
+        type: string
+    type: object
+  shortener.ShortenInput:
+    properties:
+      expired:
+        type: integer
+      url:
+        type: string
+    required:
+    - url
+    type: object
+  shortener.ShortenOutput:
+    properties:
+      url:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: ekkasith.w@gmail.com
+    name: API Support
+    url: https://github.com/justfordevandtest/rabbit-finance-test
+  description: Create an URL-shortener service to shorten URLs.\n\nAPI clients will
+    be able to create short URLs from a full length URL.\n\nIt will also support redirecting
+    the short urls to the correct url.
+  title: URL Shortener API
+  version: "1.0"
+paths:
+  /:id:
+    get:
+      description: Return a decoded URL of a given shortened URL
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      summary: Access a given shortened URL
+      tags:
+      - Shorten
+  /admin:
+    get:
+      description: Return a list of URLs according to the given paginator options
+      parameters:
+      - description: A page number
+        in: query
+        name: Page
+        required: true
+        type: string
+      - description: A total number of items per page
+        in: query
+        name: PerPage
+        required: true
+        type: string
+      - description: Condition for URLs retrieval, ex. 'Filters[id]=Lb'
+        in: query
+        name: Filters
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/SuccessResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/admin.ListOutput'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      summary: List a page of URLs
+      tags:
+      - Admin
+  /admin/{id}:
+    delete:
+      description: Accessing a deleted URL will get a 410 response
+      parameters:
+      - description: URL ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/SuccessResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/admin.ListOutput'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      summary: Delete a URL with a given ID
+      tags:
+      - Admin
+  /shorten:
+    post:
+      consumes:
+      - application/json
+      description: Return shorten version of a given URL
+      parameters:
+      - description: URL will not expire if 'expired' is set to null or excluded
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/shortener.ShortenInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/SuccessResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/shortener.ShortenOutput'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        "410":
+          description: Gone
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      summary: Shorten a given URL
+      tags:
+      - Shorten
+securityDefinitions:
+  OAuth2Password:
+    flow: password
+    tokenUrl: http://localhost:8080/api/v1/admin/login
+    type: oauth2
+swagger: "2.0"
+x-extension-openapi:
+  example: value on a json format
