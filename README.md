@@ -56,3 +56,7 @@ generate mocks from interfaces for unit testing
 ```
   go generate ./...
 ```
+
+### Component Diagram
+
+[![Component Diagram](https://github.com/justfordevandtest/url-shortener/blob/master/ComponentDiagram.png?raw=true "Component Diagram")](https://github.com/justfordevandtest/url-shortener/blob/master/ComponentDiagram.png?raw=true)
