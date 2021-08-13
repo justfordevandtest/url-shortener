@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "Create an URL-shortener service to shorten URLs.\\n\\nAPI clients will be able to create short URLs from a full length URL.\\n\\nIt will also support redirecting the short urls to the correct url.",
+        "description": "Create a URL-shortener service to shorten URLs.\\n\\nAPI clients will be able to create short URLs from a full length URL.\\n\\nIt will also support redirecting the short urls to the correct url.\\n\\nAdmin authentication credential - username: [any], password: pwd",
         "title": "URL Shortener API",
         "contact": {
             "name": "API Support",

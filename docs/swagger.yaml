@@ -67,9 +67,10 @@ info:
     email: ekkasith.w@gmail.com
     name: API Support
     url: https://github.com/justfordevandtest/rabbit-finance-test
-  description: Create an URL-shortener service to shorten URLs.\n\nAPI clients will
+  description: 'Create a URL-shortener service to shorten URLs.\n\nAPI clients will
     be able to create short URLs from a full length URL.\n\nIt will also support redirecting
-    the short urls to the correct url.
+    the short urls to the correct url.\n\nAdmin authentication credential - username:
+    [any], password: pwd'
   title: URL Shortener API
   version: "1.0"
 paths:
