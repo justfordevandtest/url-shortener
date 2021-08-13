@@ -18,7 +18,7 @@ func New(cmp shortener.Comp) (ctrl *Ctrl) {
 }
 
 // Shorten godoc
-// @Tags Shorten
+// @Tags Public
 // @Summary Shorten a given URL
 // @Description Return shorten version of a given URL
 // @Param input body shortener.ShortenInput true "URL will not expire if 'expired' is set to null or excluded"
@@ -50,12 +50,12 @@ func (ctrl *Ctrl) Shorten(c *gin.Context) {
 }
 
 // Access godoc
-// @Tags Shorten
+// @Tags Public
 // @Summary Access a given shortened URL
 // @Description Return a decoded URL of a given shortened URL
 // @param id path string true "ID"
 // @Produce json
-// @Header 302 {string} url {https://rabbit.co.th}
+// @Header 302 {string} url {https://example.com}
 // @Failure 410 {object} presenter.ErrResp
 // @Failure 500 {object} presenter.ErrResp
 // @Router /:id [get]

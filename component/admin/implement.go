@@ -22,7 +22,15 @@ func (i *impl) List(input *ListInput) (output *ListOutput, err error) {
 		return nil, entity.ValidatorListErr(err)
 	}
 
-	total, items, err := i.urlRepo.List(input.Page, input.PerPage, input.Filters)
+	filters := make(map[string]interface{})
+	if len(input.ID) > 0 {
+		filters["ID"] = input.ID
+	}
+	if len(input.Keyword) > 0 {
+		filters["URL"] = input.Keyword
+	}
+
+	total, items, err := i.urlRepo.List(input.Page, input.PerPage, filters)
 	if err != nil {
 		return nil, entity.ListRecordsErr(err)
 	}

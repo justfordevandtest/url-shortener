@@ -7,7 +7,7 @@ import (
 
 func (suite *PackageTestSuite) TestMakeURL() {
 	givenNumb := uint64(99)
-	givenURL := "https://rabbit.co.th"
+	givenURL := "https://example.com"
 	givenExpired := time.Now().Unix() + 5
 
 	url := entity.MakeURL(givenNumb, givenURL, &givenExpired)

@@ -37,22 +37,22 @@ var (
 		ID: "Lb",
 	}
 	givenShortenIn = &shortener.ShortenInput{
-		URL:     "https://rabbit.co.th",
+		URL:     "https://example.com",
 		Expired: &givenExpired,
 	}
 	givenURL = &entity.URL{
 		ID:      "Lb",
-		URL:     "https://rabbit.co.th",
+		URL:     "https://example.com",
 		Expired: &givenExpired,
 	}
 	givenExpiredURL = &entity.URL{
 		ID:      "Lb",
-		URL:     "https://rabbit.co.th",
+		URL:     "https://example.com",
 		Expired: &givenExpiredAlready,
 	}
 	givenPopularURL = &entity.URL{
 		ID:      "Lb",
-		URL:     "https://rabbit.co.th",
+		URL:     "https://example.com",
 		Expired: &givenExpired,
 		HitCount: 10,
 	}

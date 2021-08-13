@@ -51,13 +51,13 @@ func buildJsonRequestBody(input interface{}) (body io.Reader) {
 var (
 	givenExpired      = time.Now().Unix() + 5
 	givenShortenInput = &shortener.ShortenInput{
-		URL:     "https://rabbit.co.th",
+		URL:     "https://example.com",
 		Expired: &givenExpired,
 	}
 	givenAccessInput = &shortener.AccessInput{
 		ID: "Lb",
 	}
-	givenOutput      = &shortener.ShortenOutput{URL: "https://rabbit.co.th"}
+	givenOutput      = &shortener.ShortenOutput{URL: "https://example.com"}
 	givenExpiredErr  = entity.ExpiredURLErr(nil)
 	givenNotFoundErr = entity.NotFoundRecordErr(nil)
 	givenValidateErr = entity.ValidatorShortenErr(validator.ValidationErrors{})

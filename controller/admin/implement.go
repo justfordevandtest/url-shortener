@@ -18,12 +18,13 @@ func New(cmp admin.Comp) (ctrl *Ctrl) {
 }
 
 // List godoc
-// @Tags Admin
+// @Tags Protected
 // @Summary List a page of URLs
 // @Description Return a list of URLs according to the given paginator options
 // @param Page query string true "A page number"
 // @param PerPage query string true "A total number of items per page"
-// @param Filters query string false "Condition for URLs retrieval, ex. 'Filters[id]=Lb'"
+// @param ID query string false "An ID filter; will search for a record with a given ID"
+// @param Keyword query string false "A URL filter; will search for a record with URL that contains a given keyword"
 // @Produce json
 // @Success 200 {object} presenter.SuccessResp{data=admin.ListOutput}
 // @Failure 400 {object} presenter.ErrResp
@@ -46,7 +47,7 @@ func (ctrl *Ctrl) List(c *gin.Context) {
 }
 
 // Delete godoc
-// @Tags Admin
+// @Tags Protected
 // @Summary Delete a URL with a given ID
 // @Description Accessing a deleted URL will get a 410 response
 // @param id path string true "URL ID"

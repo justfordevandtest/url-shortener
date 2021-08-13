@@ -1,3 +1,5 @@
+// +build integration
+
 package test
 
 import (
@@ -46,12 +48,12 @@ var (
 	givenExpired        = time.Now().Unix() + 5
 	givenURL = &entity.URL{
 		ID:      "Lb",
-		URL:     "https://rabbit.co.th",
+		URL:     "https://example.com",
 		Expired: &givenExpired,
 	}
 	givenURLOther = &entity.URL{
 		ID:      "Lc",
-		URL:     "https://rabbit.co.th/a",
+		URL:     "https://example.com/a",
 		Expired: &givenExpired,
 	}
 	givenFilters = map[string]interface{}{

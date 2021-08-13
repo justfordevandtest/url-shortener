@@ -30,33 +30,53 @@ var (
 	givenListInput = &admin.ListInput{
 		Page:    1,
 		PerPage: 3,
-		Filters: nil,
+		ID:      "",
+		Keyword: "",
+	}
+	givenListFilterIDInput = &admin.ListInput{
+		Page:    1,
+		PerPage: 3,
+		ID:      "Lb",
+		Keyword: "",
+	}
+	givenListFilterKeywordInput = &admin.ListInput{
+		Page:    1,
+		PerPage: 3,
+		ID:      "",
+		Keyword: "Lb",
+	}
+	givenEmptyFilters = make(map[string]interface{})
+	givenIDFilters = map[string]interface{}{
+		"ID": "Lb",
+	}
+	givenKeywordFilters = map[string]interface{}{
+		"URL": "Lb",
 	}
 	givenTotal = 10
-	givenList = []entity.URL{
+	givenList  = []entity.URL{
 		{
 			ID:      "aa",
-			URL:     "https://rabbit.co.th/a",
+			URL:     "https://example.com/a",
 			Expired: nil,
 		},
 		{
 			ID:      "ab",
-			URL:     "https://rabbit.co.th/b",
+			URL:     "https://example.com/b",
 			Expired: nil,
 		},
 		{
 			ID:      "ac ",
-			URL:     "https://rabbit.co.th/c",
+			URL:     "https://example.com/c",
 			Expired: nil,
 		},
 	}
 	givenValidatorListErr = entity.ValidatorListErr(nil)
-	givenDelInput = &admin.DelInput{
+	givenDelInput         = &admin.DelInput{
 		ID: "Lb",
 	}
 	givenURL = &entity.URL{
 		ID:      "Lb",
-		URL:     "https://rabbit.co.th",
+		URL:     "https://example.com",
 		Expired: nil,
 	}
 )

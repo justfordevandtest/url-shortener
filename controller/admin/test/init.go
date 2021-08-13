@@ -40,31 +40,32 @@ func performRequest(r http.Handler, method, path string, body io.Reader) *httpte
 }
 
 var (
-	listPath = "/admin?Page=1&PerPage=3"
-	delPath = "/admin/Lb"
+	listPath       = "/admin?Page=1&PerPage=3"
+	delPath        = "/admin/Lb"
 	givenListInput = &admin.ListInput{
 		Page:    1,
 		PerPage: 3,
-		Filters: nil,
+		ID:      "",
+		Keyword: "",
 	}
 	givenList = []entity.URL{
 		{
 			ID:      "aa",
-			URL:     "https://rabbit.co.th/a",
+			URL:     "https://example.com/a",
 			Expired: nil,
 		},
 		{
 			ID:      "ab",
-			URL:     "https://rabbit.co.th/b",
+			URL:     "https://example.com/b",
 			Expired: nil,
 		},
 		{
 			ID:      "ac ",
-			URL:     "https://rabbit.co.th/c",
+			URL:     "https://example.com/c",
 			Expired: nil,
 		},
 	}
-	givenTotal = 10
+	givenTotal      = 10
 	givenListOutput = &admin.ListOutput{
 		Total: givenTotal,
 		Items: givenList,

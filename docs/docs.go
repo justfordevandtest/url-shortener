@@ -34,7 +34,7 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Shorten"
+                    "Public"
                 ],
                 "summary": "Access a given shortened URL",
                 "parameters": [
@@ -69,7 +69,7 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Admin"
+                    "Protected"
                 ],
                 "summary": "List a page of URLs",
                 "parameters": [
@@ -89,8 +89,14 @@ var doc = `{
                     },
                     {
                         "type": "string",
-                        "description": "Condition for URLs retrieval, ex. 'Filters[id]=Lb'",
-                        "name": "Filters",
+                        "description": "An ID filter; will search for a record with a given ID",
+                        "name": "ID",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "A URL filter; will search for a record with URL that contains a given keyword",
+                        "name": "Keyword",
                         "in": "query"
                     }
                 ],
@@ -141,7 +147,7 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Admin"
+                    "Protected"
                 ],
                 "summary": "Delete a URL with a given ID",
                 "parameters": [
@@ -209,7 +215,7 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Shorten"
+                    "Public"
                 ],
                 "summary": "Shorten a given URL",
                 "parameters": [

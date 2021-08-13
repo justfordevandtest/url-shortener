@@ -48,7 +48,7 @@ func New(comp auth.Comp, realm string, secret string) (middleware *jwt.GinJWTMid
 				"message": message,
 			})
 		},
-		TokenLookup:    "cookie:token",
+		TokenLookup:    "header: Authorization, query: token, cookie:token",
 		TokenHeadName:  "Bearer",
 		TimeFunc:       time.Now,
 		SendCookie:     true,

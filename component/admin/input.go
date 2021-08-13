@@ -1,9 +1,10 @@
 package admin
 
 type ListInput struct {
-	Page    int `validate:"min=1"`
-	PerPage int `validate:"min=1"`
-	Filters map[string]interface{}
+	Page    int    `validate:"min=1"`
+	PerPage int    `validate:"min=1"`
+	ID      string
+	Keyword string
 }
 
 type DelInput struct {

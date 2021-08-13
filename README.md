@@ -3,7 +3,7 @@
 #### System requirements Development
 - [x]  Go version 1.16 with Go module enabled
 
-### Pre-Require
+### Prerequisite
 
 Mockery
 ```
@@ -18,7 +18,7 @@ go get -u github.com/swaggo/files
 
 ### Swagger URL
 ```
-/swagger/index.html
+[base-url]/swagger/index.html
 ```
 
 ### Installation
@@ -41,6 +41,13 @@ integrating testing command
   go test ./... -tags integration
 ```
 
+### Local development
+development in local start mongodb redis
+
+```
+cd [project folder path]/development
+docker-compose up -d
+```
 
 ### Generate Mocks
 
