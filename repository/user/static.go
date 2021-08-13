@@ -14,7 +14,7 @@ func New() (repo *StaticRepo, err error) {
 func (repo *StaticRepo) Read(username string) (user *entity.User, err error) {
 	user = &entity.User{
 		Username: username,
-		Password: "a",
+		Password: "pwd",
 	}
 	user.HashPassword()
 

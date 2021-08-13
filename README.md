@@ -20,6 +20,7 @@ go get -u github.com/swaggo/files
 ```
 [base-url]/swagger/index.html
 ```
+Admin authentication credential - username: [any], password: pwd
 
 ### Installation
 
