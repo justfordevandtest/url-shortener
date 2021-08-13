@@ -19,6 +19,8 @@ go get -u github.com/swaggo/files
 ### Swagger URL
 ```
 [base-url]/swagger/index.html
+
+Ex. http://localhost:8080/swagger/index.html
 ```
 Admin authentication credential - username: [any], password: pwd
 
