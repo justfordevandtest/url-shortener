@@ -8,7 +8,7 @@ import (
 
 // @title URL Shortener API
 // @version 1.0
-// @description Create an URL-shortener service to shorten URLs.\n\nAPI clients will be able to create short URLs from a full length URL.\n\nIt will also support redirecting the short urls to the correct url.
+// @description Create a URL-shortener service to shorten URLs.\n\nAPI clients will be able to create short URLs from a full length URL.\n\nIt will also support redirecting the short urls to the correct url.
 
 // @contact.name API Support
 // @contact.url https://github.com/justfordevandtest/rabbit-finance-test
