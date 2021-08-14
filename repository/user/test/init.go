@@ -21,5 +21,5 @@ func (suite *PackageTestSuite) SetupTest() {
 }
 
 var (
-	givenPwd = "a"
+	givenPwd = "pwd"
 )
